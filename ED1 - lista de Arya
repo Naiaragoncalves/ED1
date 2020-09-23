@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <string.h>
+#include <conio.h>
+#include <stdlib.h>
+typedef struct Temp
+  {
+     int info;
+     struct Temp *prox;
+  }TNODO;
+   TNODO *inicio=NULL;
+   void CriaLista()
+{
+   inicio = NULL;
+}
+// Funcao que insere um elemento do inicio da lista.
+int Insere(int dado)
+{
+   TNODO *p;
+   p =  (TNODO *) malloc(sizeof(TNODO));
+   if (p==NULL)
+   {
+     printf("Erro de alocacao\n");
+     return 0;
+   }
+   p->info = dado;
+   p->prox = NULL;
+   if (inicio==NULL)
+      inicio = p;
+   else {
+	  p->prox = inicio;
+	  inicio  = p;
+	}
+   return 1;
+}
